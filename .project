@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>avr test</name>
+	<name>avr_test</name>
 	<comment></comment>
 	<projects>
+		<project>AVR</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

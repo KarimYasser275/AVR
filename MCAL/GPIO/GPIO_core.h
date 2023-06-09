@@ -7,7 +7,166 @@
 
 #ifndef MCAL_GPIO_GPIO_CORE_H_
 #define MCAL_GPIO_GPIO_CORE_H_
+#include "stdint.h"
+#include "../MCAL.h"
+
+/**************************************************/
+/* Description : Definitions for DIO HIGH and LOW */
+
+#define GPIO_HIGH            1
+#define GPIO_LOW             0
 
 
+/******************************************************/
+/* Description : Definitions for DIO OUTPUT and INPUT */
 
+#define GPIO_OUTPUT          1
+#define GPIO_INPUT           0
+
+
+/**************************************************/
+/* Description : PINS Definitions                 */
+// Port A
+#define GPIO_PORTA_PIN_0   0
+#define GPIO_PORTA_PIN_1   1
+#define GPIO_PORTA_PIN_2   2
+#define GPIO_PORTA_PIN_3   3
+#define GPIO_PORTA_PIN_4   4
+#define GPIO_PORTA_PIN_5   5
+#define GPIO_PORTA_PIN_6   6
+#define GPIO_PORTA_PIN_7   7
+
+// Port B
+#define GPIO_PORTB_PIN_0   0
+#define GPIO_PORTB_PIN_1   1
+#define GPIO_PORTB_PIN_2   2
+#define GPIO_PORTB_PIN_3   3
+#define GPIO_PORTB_PIN_4   4
+#define GPIO_PORTB_PIN_5   5
+#define GPIO_PORTB_PIN_6   6
+#define GPIO_PORTB_PIN_7   7
+
+// Port C
+#define GPIO_PORTC_PIN_0   0
+#define GPIO_PORTC_PIN_1   1
+#define GPIO_PORTC_PIN_2   2
+#define GPIO_PORTC_PIN_3   3
+#define GPIO_PORTC_PIN_4   4
+#define GPIO_PORTC_PIN_5   5
+#define GPIO_PORTC_PIN_6   6
+#define GPIO_PORTC_PIN_7   7
+
+// Port D
+#define GPIO_PORTD_PIN_0   0
+#define GPIO_PORTD_PIN_1   1
+#define GPIO_PORTD_PIN_2   2
+#define GPIO_PORTD_PIN_3   3
+#define GPIO_PORTD_PIN_4   4
+#define GPIO_PORTD_PIN_5   5
+#define GPIO_PORTD_PIN_6   6
+#define GPIO_PORTD_PIN_7   7
+
+
+#define GPIO_DIR_OUTPUT     1
+#define GPIO_DIR_INPUT      0
+
+#define GPIO_PORTA_PIN0_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTA_PIN1_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTA_PIN2_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTA_PIN3_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTA_PIN4_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTA_PIN5_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTA_PIN6_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTA_PIN7_DIR   GPIO_DIR_INPUT
+
+#define GPIO_PORTB_PIN0_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTB_PIN1_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTB_PIN2_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTB_PIN3_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTB_PIN4_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTB_PIN5_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTB_PIN6_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTB_PIN7_DIR   GPIO_DIR_INPUT
+
+#define GPIO_PORTC_PIN0_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTC_PIN1_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTC_PIN2_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTC_PIN3_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTC_PIN4_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTC_PIN5_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTC_PIN6_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTC_PIN7_DIR   GPIO_DIR_INPUT
+
+#define GPIO_PORTD_PIN0_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTD_PIN1_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTD_PIN2_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTD_PIN3_DIR   GPIO_DIR_OUTPUT
+#define GPIO_PORTD_PIN4_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTD_PIN5_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTD_PIN6_DIR   GPIO_DIR_INPUT
+#define GPIO_PORTD_PIN7_DIR   GPIO_DIR_INPUT
+
+#define GPIO_PORT_PIN_HIGH    1
+#define GPIO_PORT_PIN_LOW     0
+
+#define GPIO_PORTA_PIN0_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTA_PIN1_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTA_PIN2_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTA_PIN3_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTA_PIN4_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTA_PIN5_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTA_PIN6_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTA_PIN7_STATE  GPIO_PORT_PIN_LOW
+
+#define GPIO_PORTB_PIN0_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTB_PIN1_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTB_PIN2_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTB_PIN3_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTB_PIN4_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTB_PIN5_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTB_PIN6_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTB_PIN7_STATE  GPIO_PORT_PIN_LOW
+
+#define GPIO_PORTC_PIN0_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTC_PIN1_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTC_PIN2_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTC_PIN3_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTC_PIN4_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTC_PIN5_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTC_PIN6_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTC_PIN7_STATE  GPIO_PORT_PIN_LOW
+
+#define GPIO_PORTD_PIN0_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTD_PIN1_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTD_PIN2_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTD_PIN3_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTD_PIN4_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTD_PIN5_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTD_PIN6_STATE  GPIO_PORT_PIN_LOW
+#define GPIO_PORTD_PIN7_STATE  GPIO_PORT_PIN_LOW
+
+
+typedef enum
+{
+	PortA =0,
+	PortB =1,
+	PortC= 2,
+	PortD =3,
+	MAX_NUMBER_OF_PORTS = 4
+
+}Ports_e;
+
+
+/**************************************************/
+/* Description : Prototype declaration            */
+
+/* Description : Initialize PINS Directions       */
+
+void GPIO_Init(void);
+void GPIO_Main(void);
+void GPIO_PortDirSet(uint8_t port , uint8_t value);
+
+void GPIO_PinSet(uint8_t port , uint8_t pin);
+void GPIO_PinClr(uint8_t port , uint8_t pin);
+void GPIO_PinTgl(uint8_t port , uint8_t pin);
 #endif /* MCAL_GPIO_GPIO_CORE_H_ */
