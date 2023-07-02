@@ -31,7 +31,15 @@
 // Timer/Counter Registers
 #define TCCR0  (*(volatile uint8_t *)(0x0043)) // Timer/Counter 0 Control Register
 #define TCNT0  (*(volatile uint8_t *)(0x0042)) // Timer/Counter 0 Value Register
-#define OCR0   (*(volatile uint8_t *)(0x004C)) // Timer/Counter 0 Output Compare Register
+#define OCR0   (*(volatile uint8_t *)(0x005C)) // Timer/Counter 0 Output Compare Register
+
+#define TCCR2  (*(volatile uint8_t *)(0x0045)) // Timer/Counter 2 Control Register
+#define TCNT2  (*(volatile uint8_t *)(0x0044)) // Timer/Counter 2 Value Register
+#define OCR2   (*(volatile uint8_t *)(0x0043)) // Timer/Counter 2 Output Compare Register
+#define ASSR   (*(volatile uint8_t *)(0x0042)) /* Asynchronous Status Register */
+
+#define TIMSK   (*(volatile uint8_t *)(0x0059)) //Timer Interrupt mask register
+#define TIFR    (*(volatile uint8_t *)(0x0058)) //Timer Interrupt flag register
 
 #define TCCR1A (*(volatile uint8_t *)(0x0049)) // Timer/Counter 1 Control Register A
 #define TCCR1B (*(volatile uint8_t *)(0x0048)) // Timer/Counter 1 Control Register B
@@ -48,8 +56,9 @@
 #define UDR    (*(volatile uint8_t *)(0x002C)) // USART I/O Data Register
 #define UCSRA  (*(volatile uint8_t *)(0x002B)) // USART Control and Status Register A
 #define UCSRB  (*(volatile uint8_t *)(0x002A)) // USART Control and Status Register B
-#define UCSRC  (*(volatile uint8_t *)(0x0028)) // USART Control and Status Register C
+#define UCSRC  (*(volatile uint8_t *)(0x0040)) // USART Control and Status Register C
 #define UBRRL  (*(volatile uint8_t *)(0x0029)) // USART Baud Rate Register Low
+#define UBBRH  (*(volatile uint8_t *)(0x0040)) // USART Baud Rate Register HIGH
 
 // Interrupt Registers
 #define SREG   (*(volatile uint8_t *)(0x005F)) // Status Register
@@ -59,15 +68,16 @@
 #define MCUCSR (*(volatile uint8_t *)(0x0054)) // MCU Control and Status Register
 
 // ADC Registers
-#define ADCSRA (*(volatile uint8_t *)(0x002F)) // ADC Control and Status Register A
-#define ADMUX  (*(volatile uint8_t *)(0x002E)) // ADC Multiplexer Selection Register
-#define ADCH   (*(volatile uint8_t *)(0x002D)) // ADC Data Register High
-#define ADCL   (*(volatile uint8_t *)(0x002C)) // ADC Data Register Low
+#define ACSR   (*(volatile uint8_t *)(0x0028)) // Analog Comparator Control and Status Register
+#define ADCSRA (*(volatile uint8_t *)(0x0026)) // ADC Control and Status Register A
+#define ADMUX  (*(volatile uint8_t *)(0x0027)) // ADC Multiplexer Selection Register
+#define ADCH   (*(volatile uint8_t *)(0x0025)) // ADC Data Register High
+#define ADCL   (*(volatile uint8_t *)(0x0024)) // ADC Data Register Low
 
 // SPI Registers
 #define SPCR   (*(volatile uint8_t *)(0x002D)) // SPI Control Register
 #define SPSR   (*(volatile uint8_t *)(0x002E)) // SPI Status Register
 #define SPDR   (*(volatile uint8_t *)(0x002F)) // SPI Data Register
 
-
+#define SFIOR  (*(volatile uint8_t *)(0x0050)) //
 #endif /* MCAL_MCAL_H_ */

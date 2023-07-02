@@ -8,31 +8,27 @@
 #include "SCHD_core.h"
 #include "MCAL/GPIO/GPIO_core.h"
 
-tasks_s Tasks[MAX_TASKS_NUMBER] = {
-		{.cnt = 0,
-		.task = GPIO_Main ,
-		.ReadyFlag = 0,
-		.active =1
-		}
-};
-void SCHD_Task1sec(void)
+extern tasks_s Tasks[MAX_TASKS_NUMBER];
+
+void SCHD_Main(void)
 {
 	for(uint8_t i=0 ; i< MAX_TASKS_NUMBER ;i++ )
 	{
-		if (Tasks[i].active)
+		if (Tasks[i].active == TASK_ACTIVE)
 		{
-			if (Tasks[i].cnt == 1000)
+			if (Tasks[i].cnt == Tasks[i].periodicity_ms)
 			{
-				Tasks[i].ReadyFlag = 1;
+				Tasks[i].ReadyFlag = TASK_READY;
 			}
 			else
 			{
-				Tasks[i].ReadyFlag = 0;
+				Tasks[i].ReadyFlag = TASK_NOT_READY;
 			}
-			if (Tasks[i].ReadyFlag == 1)
+
+			if (Tasks[i].ReadyFlag == TASK_READY)
 			{
 				Tasks[i].task();
-				Tasks[i].ReadyFlag = 0;
+				Tasks[i].ReadyFlag = TASK_NOT_READY;
 				Tasks[i].cnt = 0;
 			}
 			else
@@ -42,4 +38,3 @@ void SCHD_Task1sec(void)
 		}
 	}
 }
-

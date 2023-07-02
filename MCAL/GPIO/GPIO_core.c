@@ -4,8 +4,8 @@
 #include "GPIO_cfg.h"
 #include "../../Bit_maths.h"
 #include "util/delay.h"
+#include "../ADC/ADC_core.h"
 
-//void(*GPIO_Interrupt)(void);
 
 void GPIO_Init(void)
 {
@@ -86,7 +86,20 @@ void GPIO_Init(void)
 
 void GPIO_Main(void)
 {
-	GPIO_PinTgl(PORTA, GPIO_PORTA_PIN_0);
+	uint8_t GPIO_ADC_Reading = (uint8_t)ADC_ReadRawValue(0);
+//	PORTB = GPIO_ADC_Reading;
+	if (GPIO_ADC_Reading >= 128)
+	{
+		SET_BIT (PORTB , 6);
+		CLR_BIT (PORTB, 5);
+	}
+	else
+	{
+		SET_BIT (PORTB , 5);
+		CLR_BIT (PORTB, 6);
+	}
+//	TOGGLE_BIT(PORTB, GPIO_PORTB_PIN_0);
+//	(PORTB ^=(1<<bitnum)
 }
 
 void GPIO_PortDirSet(uint8_t port , uint8_t value)
@@ -109,19 +122,5 @@ void GPIO_PinTgl(uint8_t port , uint8_t pin)
 	TOGGLE_BIT(port , pin);
 }
 
-//void GPIO_InterruptHandler(void * pf)
-//{
-//	if (pf != NULL)
-//		GPIO_Interrupt = pf;
-//}
-//
-//
-//
-//void __vector_2(void) __attribute__((signal , used));
-//void __vector_2(void)
-//{
-//
-//	GPIO_Interrupt();
-//	CLR_BIT(GIFR , 6);
-//}
+
 

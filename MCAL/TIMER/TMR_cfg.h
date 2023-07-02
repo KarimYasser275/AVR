@@ -12,7 +12,7 @@
 #include "../MCAL.h"
 #include "TMR_core.h"
 
-#define TMR0_OP_MODE    CTC
+//#define TMR0_OP_MODE    CTC
 
 #define TMR0_INTERRUPT_ENABLE    (STD_ON)
 

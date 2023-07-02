@@ -7,6 +7,7 @@
 #include "stdint.h"
 #include "GIE_core.h"
 #include "Bit_maths.h"
+#include "MCAL/GPIO/GPIO_core.h"
 
 void GIE_Enable(void)
 {
